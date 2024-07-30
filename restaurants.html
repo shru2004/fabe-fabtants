@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabants</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,300,400,700,900">
+    <style>
+        /* reset */
+        * {margin: 0; padding: 0;}
+        *, *::after, *::before {box-sizing: border-box;}
+        li {list-style: none;}
+        a {text-decoration: none;}
+
+        /* body */
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: auto; /* Horizontal scrolling */
+            overflow-y: auto; /* Vertical scrolling */
+            height: 200vh; /* Increased height for more vertical space */
+        }
+
+        /* nav */
+        #nav {
+            position: fixed;
+            left: 0;
+            top: 0px;
+            width: 100%;
+            height: 61px;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: all 0.3s ease;
+            color: white;
+            text-align: center;
+            line-height: 61px; /* Center text vertically */
+        }
+
+        #nav h1 {
+            font-size: 40px;
+            font-family: 'Abel';
+        }
+
+        /* background video */
+        #background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* contents */
+        #contents {text-align: center; color: #fff;}
+
+        /* container */
+        .container {width: 1200px; margin: 0 auto;}
+
+        /* section */
+        .section {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 100vh; 
+            min-height: 600px;
+            transition: transform 0.5s ease-in-out;
+            padding: 2em;
+        }
+
+        .section .sec_text {
+            width: 50vw;
+            font-size: 3vw; /* Reduced font size for better visibility */
+            line-height: 1.2;
+            padding: 0 2em;
+            
+            
+        }
+
+        .section .sec_img {
+            width: 50vw;
+        }
+
+        .section img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 15px; /* Rounded borders for images */
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .section .revealer,
+        .section .revealer2 {
+            position: relative;
+            z-index: 2;
+            display:inline-block;
+            white-space: nowrap;
+        }
+
+        
+        
+
+        .section .revealer .revealer_content,
+        .section .revealer2 .revealer_content {
+            opacity: 0;
+        }
+
+        .section .revealer .revealer_element,
+        .section .revealer2 .revealer_element {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scaleX(0);
+            width: 100%;
+            height: 100%;
+            background: #000;
+            pointer-events: none;
+        }
+
+        .section.show .revealer .revealer_content,
+        .section.show .revealer2 .revealer_content {
+            animation: opa1 0.54s cubic-bezier(0.0, 0.0, 0.2, 1) forwards;
+        }
+
+        .section.show .revealer .revealer_element,
+        .section.show .revealer2 .revealer_element {
+            animation: ani1 0.54s cubic-bezier(0.0, 0.0, 0.2, 1) forwards;
+        }
+
+        @keyframes ani1 {
+            0%   {transform-origin: 0 50%; transform: scaleX(0);}
+            60%  {transform-origin: 0 50%; transform: scaleX(1);}
+            70%  {transform-origin: 100% 50%; transform: scaleX(1);}
+            100% {transform-origin: 100% 50%; transform: scaleX(0);}
+        }
+
+        @keyframes opa1 {
+            0%   {opacity: 0;}
+            50%  {opacity: 0;}
+            51%  {opacity: 1;}
+            100% {opacity: 1;}
+        }
+
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <h1>Fabants</h1>
+    </nav>
+    
+    <video autoplay muted loop id="background-video">
+        <source src="Restaurant Promo Video _ Sigma 30mm f_1.4.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <main>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 style="text-align: center; padding: 20px; font-size: 32px; color: #FF5722;">Welcome to Our Restaurant Showcase!</h2> <!-- Added top text -->
+        <br>
+        <br>
+        
+        <section class="section s2">
+            <h2 class="sec_text" >
+                <div class="revealer delay1">
+                    <div class="revealer_content" style="background-color: bisque;">MTR</div>
+                    <div class="revealer_element"></div>
+                </div></h2>
+                
+            <figure class="sec_img">
+                <div class="revealer2">
+                    <div class="revealer_content"><a href="https://www.mavallitiffinrooms.com/"><img src="https://cdn-star2-com.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2018/06/str2_abimtr_abirami_15.jpg" title="Click here to view the official website" alt="MTR"></a></div>
+                    <div class="revealer_element"></div>
+                </div>
+            </figure>
+            <div class="revealer delay2" style="align-content: flex-end;">
+                <div class="revealer_content" style="font-size:20px;color: indianred;background-color: bisque; ">Since 1924, Mavalli Tiffin Rooms (MTR) has been serving delicious South Indian cuisine in Bangalore.</div>
+                <div class="revealer_element"></div>
+            </div>
+            
+        </section>
+        <!-- //section2 -->
+        
+        <section class="section s3">
+            <h2 class="sec_text title_left">
+                <div class="revealer left delay1">
+                    <div class="revealer_content" style="background-color: bisque;">Vidyarthi Bhavan</div>
+                    <div class="revealer_element"></div>
+                </div></h2>
+            <figure class="sec_img">
+                <div class="revealer2 left">
+                    <div class="revealer_content"><a href="https://www.vidyarthibhavan.in/"><img src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2023/06/22214657/Vidyarthi-Bhavan-in-Bangalore-4-1600x900.jpg" title="Click here to view the official website" alt="Vidyarthi Bhavan"></a></div>
+                    <div class="revealer_element"></div>
+                </div>
+            </figure>
+           
+                <div class="revealer left delay2">
+                    <div class="revealer_content"style="font-size:20px;color: indianred;background-color: bisque; ">Famous for its crispy masala dosa, Vidyarthi Bhavan has been a Bangalore landmark since 1943.</div>
+                    <div class="revealer_element"></div>
+                </div>
+            
+        </section>
+        <!-- //section3 -->
+        
+        <section class="section s4">
+            <h2 class="sec_text">
+                <div class="revealer delay1">
+                    <div class="revealer_content" style="background-color: bisque;">Koshy's</div>
+                    <div class="revealer_element"></div>
+                </div>
+               
+            </h2>
+            <figure class="sec_img">
+                <div class="revealer2">
+                    <div class="revealer_content"><a href="https://www.eazydiner.com/bengaluru/koshys-st-marks-road-330539"><img src="https://im1.dineout.co.in/images/uploads/restaurant/sharpen/5/z/y/p5065-15637836875d357207907b7.jpg?tr=tr:n-large" title="Click here to view more" alt="Koshy's"></div>
+                    <div class="revealer_element"></div>
+                </div>
+            </figure>
+            <div class="revealer delay2">
+                <div class="revealer_content"style="font-size:20px;color: indianred;background-color: bisque; ">Koshy's is an iconic Bangalore restaurant known for its classic Indian and Continental dishes since 1940.</div>
+                <div class="revealer_element"></div>
+            </div>
+        </section>
+        <!-- //section4 -->
+        
+        <section class="section s5">
+            
+            <h2 class="sec_text ">
+                <div class="revealer delay1">
+                    <div class="revealer_content"style="background-color: bisque;">Spice corner</div>
+                    <div class="revealer_element"></div>
+                </div></h2>
+                <figure class="sec_img">
+                    <div class="revealer2">
+                        <div class="revealer_content"><a href="https://www.eat2eat.com/SWBooking/Pages/Reservation.aspx?relId=MgA2ADgANQA=&lang=0&pro=0"><img src="https://lh3.googleusercontent.com/p/AF1QipPia8IhMviEFAwWXnLB0nQusN8qxJKl5rJXWJZj=s1360-w1360-h1020" title="Click here to book a table!" alt="Spice corner"></a></div>
+                        <div class="revealer_element"></div>
+                    </div>
+                </figure>
+                <div class="revealer delay2">
+                    <div class="revealer_content"style="font-size:20px; color: indianred; background-color: bisque; ">Spice Terrace is a North Indian restaurant and bar which serves a selection of innovative regional specialties.</div>
+                    <div class="revealer_element"></div>
+                </div>
+            
+        </section>
+        <!-- //section5 -->
+        
+        <section class="section s6">
+            <h2 class="sec_text">
+                <div class="revealer delay1">
+                    <div class="revealer_content"style="background-color: bisque;">Empire Restaurant</div>
+                    <div class="revealer_element"></div>
+                </div>
+                
+            </h2>
+            <figure class="sec_img">
+                <div class="revealer2">
+                    <div class="revealer_content"><a href="https://www.hotelempire.in/"><img src="https://lh3.googleusercontent.com/p/AF1QipPec8F9kbY3vCWXNm0xpmd5cWtGQZ9wpnKNkFJU=s1360-w1360-h1020" title="Click here to view official website" alt="Empire Restaurant"></a></div>
+                    <div class="revealer_element"></div>
+                </div>
+            </figure>
+            <div class="revealer delay2">
+                <div class="revealer_content"style="font-size:20px;color: indianred;background-color: bisque; ">Empire Restaurant is a favorite among Bangaloreans for its late-night biryani and other North Indian dishes.</div>
+                <div class="revealer_element"></div>
+            </div>
+        </section>
+        <!-- //section6 -->
+    </main>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(window).scroll(function(){
+            var wScroll = $(this).scrollTop();
+            var cont = $("main > section");
+            
+            cont.each(function(index) {
+                if(wScroll >= $(this).offset().top - $(window).height()/3){
+                    $(this).addClass("show");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Layout</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,700,900&display=swap" rel="stylesheet">
+    <style>
+        *, *::after, *::before { box-sizing: border-box; }
+        :root { font-size: 20px; }
+        body {
+            margin: 0;
+            --color-text: #dc6e25;
+            --color-link: #0455cd;
+            --color-bg: #2e2f2f;
+            --imgwidthmax: 600px;
+            --aspect-ratio: 32/17;
+            color: var(--color-link);
+            background-color: var(--color-bg);
+            font-family: 'Arial', sans-serif;
+        }
+        .infor {
+            position: fixed; right: 10px; top: 10px; z-index: 1000;
+            background: rgba(0,0,0,.3);
+            color: #fff;
+            padding: 20px;
+            font-size: 14px; line-height: 1.4;
+            text-align: right;
+        }
+        #wrap h1 {
+            font-size: 5rem;
+            padding: 3rem;
+            color: var(--color-text);
+        }
+        .content-item { 
+            --imgwidth: calc(var(--imgwidthmax) * var(--aspect-ratio));
+            width: var(--imgwidth);
+            position: relative;
+            will-change: transform;
+        }
+        .content-item:nth-child(even){
+            margin-left: auto;
+        }
+        .content-item-num {
+            position: absolute; top: 30%; right: 10vw; transform: translateY(-60%);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20vw; opacity: 4; line-height: 1;
+            font-weight: 100; 
+            color: #c4d1d2;
+        }
+        .content-item-title {
+            text-align: right; font-weight: 600; text-transform: capitalize;
+            color: #c9ce26; padding-right: 30px;
+            font-size: xx-large; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .content-item-imgWrap {
+            position: absolute;
+            top: 50%; transform: translateY(-50%);
+            --imgwidth: 50%;
+            overflow: hidden;
+            margin: 0 10vw 0 10vw;
+            width: var(--imgwidth); 
+            padding-top: calc(var(--imgwidth) / (var(--aspect-ratio)));
+            will-change: transform;
+        }
+        .content-item-img {
+            --overflow: 40px;
+            height: calc(100% + (4 * var(--overflow)));
+            position: absolute;
+            top: calc( -1 * var(--overflow));
+            width: 50%;
+            background-size: cover;
+            background-position: 50% 0;
+        }
+        .content-item-desc {
+            position: fixed;
+            top: 60vh;
+            right: 10vw;
+            margin: -1;
+            font-size: 5vw;
+            line-height: 1.2;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #f6fcf9;
+            text-align: right;
+            word-break: keep-all;
+            z-index: -10;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+        }
+        .move-down {
+            margin-top: 30px; 
+        }
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .contents { 
+            position: fixed; width: 900vw; margin: 0; height: 100vh;
+        }
+        .contents > section {width: 100vw; float: left; height: 100vh; }
+        .common-image {
+            border: 4px solid;
+            border-image: conic-gradient(from 0deg, #edf3f0, #ffffff) 1;
+            width: 100%;
+            height: auto;
+            border-radius: 20px; /* Adjust this for rounded corners */
+            clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%); /* Create a custom shape */
+        }
+       
+.common-image {
+        border: 7px solid transparent;
+        border-radius: 100px; /* Adjust this for rounded corners */
+        clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%); /* Create a custom shape */
+        background-image: conic-gradient(from 0deg, #010603, #0000006d); /* Gradient border */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+        overflow: hidden; /* Prevents overflow of the image */
+    }
+    </style>
+</head>
+<body>
+    <div class="video-background">
+        <video width="640" height="480" autoplay loop muted>
+            <source src="f.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="wrap">
+        <div class="contents">
+            <section id="section1" class="content-item">
+                <span class="content-item-num">01</span>
+                <h2 class="content-item-title">Iron hill</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img">
+                        <a href="https://ironhillindia.com/">
+                            <img src="https://d1ynl4hb5mx7r8.cloudfront.net/wp-content/uploads/2020/12/29152950/iron-hill-buckhead.jpg" class="common-image">
+                        </a>
+                    </div>
+                </div>
+                <p class="content-item-desc">The world's best brewery in Bangalore</p>
+            </section>
+            <section id="section2" class="content-item">
+                <span class="content-item-num">02</span>
+                <h2 class="content-item-title">Shakesbierre</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img">
+                        <a href="https://www.shakesbierre.com/">
+                            <img src="https://unsobered.com/wp-content/uploads/2022/08/ShakesBierre-1536x695.jpg" class="common-image">
+                        </a>
+                    </div>
+                </div>
+                <p class="content-item-desc">The Bard, As you Spike it!</p>
+            </section>
+            <section id="section3" class="content-item">
+                <span class="content-item-num">03</span>
+                <h2 class="content-item-title">Windmills Craftworks</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img">
+                        <a href="https://windmills-india.com/">
+                            <img src="https://im1.dineout.co.in/images/uploads/restaurant/sharpen/9/o/d/p9350-1697446447652cfa2f16677.jpg?tr=tr:n-large" class="common-image">
+                        </a>
+                    </div>
+                </div>
+                <p class="content-item-desc">Stout, Indian Pale Ale</p>
+            </section>
+            <section id="section4" class="content-item">
+                <span class="content-item-num">04</span>
+                <h2 class="content-item-title">XOOX Brewmill</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img">
+                        <a href="https://ironhillindia.com/">
+                            <img src="https://im1.dineout.co.in/images/uploads/restaurant/sharpen/4/o/c/p41710-15342368845b7298d4d0e0c.jpg?w=1200" class="common-image">
+                        </a>
+                    </div>
+                </div>
+                <p class="content-item-desc">Craft Beer, Apple Cider Beer</p>
+            </section>
+            <section id="section5" class="content-item">
+                <span class="content-item-num">05</span>
+                <h2 class="content-item-title">The pallet</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img">
+                        <a href="https://restaurant-guru.in/">
+                            <img src="https://im.whatshot.in/img/2018/Apr/3-the-pallet-1524376401.jpg?wm=1&w=1200&h=630&cc=1" class="common-image">
+                        </a>
+                    </div>
+                </div>
+                <p class="content-item-desc">Nitro coffee, Cold coffee</p>
+            </section>
+            <section id="section6" class="content-item">
+                <span class="content-item-num">06</span>
+                <h2 class="content-item-title">Third wave coffee roasters</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img">
+                        <a href="https://www.thirdwavecoffeeroasters.com/">
+                            <img src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/sites/2/2016/10/ThirdWaveCoffeeRoasters.jpg?w=1200&h=628&fill=blur&fit=fill" class="common-image">
+                        </a>
+                    </div>
+                </div>
+                <p class="content-item-desc">Cold Brew, Espresso-drinks</p>
+            </section>
+            <section id="section7" class="content-item">
+                <span class="content-item-num">07</span>
+                <h2 class="content-item-title">Cafe Noir</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img">
+                        <a href="https://cafenoir.in/">
+                            <img src="https://th.bing.com/th/id/OIP.bju7NtVINVWDy35HI8LokQAAAA?rs=1&pid=ImgDetMain" class="common-image">
+                        </a>
+                    </div>
+                </div>
+                <p class="content-item-desc">Bruschetta, Escargots</p>
+            </section>
+            <section id="section8" class="content-item">
+                <span class="content-item-num">08</span>
+                <h2 class="content-item-title">Araku Coffee</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img">
+                        <a href="https://www.arakucoffee.com/">
+                            <img src="https://curlytales.com/wp-content/uploads/2021/04/Untitled-2021-04-06T175242.585-600x401.jpg" class="common-image">
+                        </a>
+                    </div>
+                </div>
+                <p class="content-item-desc">cappuccino, Araku Signature Brew</p>
+            </section>
+            <section id="section9" class="content-item">
+                <span class="content-item-num">09</span>
+                <h2 class="content-item-title">Rim Naam</h2>
+                <div class="content-item-imgWrap">
+                    <div class="content-item-img">
+                        <a href="https://www.oberoihotels.com/hotels-in-bengaluru/restaurants/rim-naam/">
+                            <img src="https://img.traveltriangle.com/blog/wp-content/uploads/2020/01/Rim-Naam-Oberoi-400x228.jpg" class="common-image">
+                        </a>
+                    </div>
+                </div>
+                <p class="content-item-desc">Hemlock Belgian Wit, Pin German Wheat</p>
+            </section>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script>
+        var lastScrollTop = 0;							
+        var roadLength = $(".contents").width();		
+        $("body").css("height", roadLength);		    
+        
+        $(window).scroll(function(){
+            var wScroll = $(window).scrollTop();
+            var wWidth = $(window).width();								
+            var wHeight = $(window).height();							
+            var dHeight = $("body").height() - wHeight;		            
+            var wRoad = roadLength - wWidth;							
+            var step = wRoad/dHeight;								    
+            var goLeft = wScroll * step;
+            
+            $(".contents").css({ "transform":"translateX(-"+ goLeft +"px )" });
+            
+            lastScrollTop = wScroll;
+            
+            $(".wScroll").text(wScroll);
+            $(".wWidth").text(wWidth);
+            $(".wHeight").text(wHeight);
+            $(".dHeight").text(dHeight);
+            $(".wRoad").text(wRoad);
+            $(".step").text(parseInt(step));
+            $(".goLeft").text(parseInt(goLeft));
+            
+            let offset1 = parseInt((wScroll - goLeft) * 2);
+            
+            $("#section1 .content-item-desc").css({ "transform" : "translateX("+ -offset1 +"px)" });
+            $("#section2 .content-item-desc").css({ "transform" : "translateX("+ -offset1 +"px)" });
+            $("#section3 .content-item-desc").css({ "transform" : "translateX("+ -offset1 +"px)" });
+            
+            $(document).keydown(function(e){
+                if(e.which == 39){
+                    var scrollTop = $(document).scrollTop();
+                    $(window).scrollTop(scrollTop + 50);
+                }
+                if(e.which == 37){
+                    var scrollTop = $(document).scrollTop();
+                    $(window).scrollTop(scrollTop - 50);
+                }
+            });
+            
+            if( $(window).scrollTop() > $("#section4").offset().top - $(window).height()/2  ){ 
+                $("#section4").addClass("show")
+            }  
+            if( $(window).scrollTop() > $("#section5").offset().top - $(window).height()/2  ){ 
+                $("#section5").addClass("show")
+            }  
+        });
+    </script>
+</body>
+</html>
